@@ -16,6 +16,8 @@
 		BE74E1091CC821C900BC34F3 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE74E1081CC821C900BC34F3 /* LoginManager.swift */; };
 		BE74E10C1CC8224F00BC34F3 /* FBLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE74E10B1CC8224F00BC34F3 /* FBLoginService.swift */; };
 		BE74E10E1CC8226D00BC34F3 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE74E10D1CC8226D00BC34F3 /* TokenManager.swift */; };
+		BE74E1111CC82FC200BC34F3 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE74E1101CC82FC200BC34F3 /* LoginService.swift */; };
+		BE74E1131CC8304D00BC34F3 /* FacebookLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE74E1121CC8304D00BC34F3 /* FacebookLogin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		BE74E1081CC821C900BC34F3 /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 		BE74E10B1CC8224F00BC34F3 /* FBLoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBLoginService.swift; sourceTree = "<group>"; };
 		BE74E10D1CC8226D00BC34F3 /* TokenManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		BE74E1101CC82FC200BC34F3 /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		BE74E1121CC8304D00BC34F3 /* FacebookLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookLogin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 		BE74E1071CC8219A00BC34F3 /* Client */ = {
 			isa = PBXGroup;
 			children = (
+				BE74E10F1CC82FB600BC34F3 /* Service */,
 				BE74E1081CC821C900BC34F3 /* LoginManager.swift */,
 			);
 			path = Client;
@@ -119,6 +124,15 @@
 				BE74E10D1CC8226D00BC34F3 /* TokenManager.swift */,
 			);
 			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		BE74E10F1CC82FB600BC34F3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BE74E1101CC82FC200BC34F3 /* LoginService.swift */,
+				BE74E1121CC8304D00BC34F3 /* FacebookLogin.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,6 +237,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE74E0EA1CC8208500BC34F3 /* ViewController.swift in Sources */,
+				BE74E1131CC8304D00BC34F3 /* FacebookLogin.swift in Sources */,
+				BE74E1111CC82FC200BC34F3 /* LoginService.swift in Sources */,
 				BE74E10C1CC8224F00BC34F3 /* FBLoginService.swift in Sources */,
 				BE74E10E1CC8226D00BC34F3 /* TokenManager.swift in Sources */,
 				BE74E0E81CC8208500BC34F3 /* AppDelegate.swift in Sources */,
