@@ -22,7 +22,7 @@ typealias FBLoginHandler = (result: FBRequestResult) -> Void
 
 class FBLoginService {
   
-  func login(email: String, password: String, handler: FBLoginHandler) {
+  func login(withEmail email: String, password: String, handler: FBLoginHandler) {
     handler(result: .Failure(error: FBLoginError.FacebookNotAuthorised))
   }
   

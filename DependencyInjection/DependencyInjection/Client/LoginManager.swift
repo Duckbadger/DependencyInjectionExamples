@@ -14,10 +14,6 @@ class LoginManager {
   
   let tokenManager = TokenManager()
   let loginService = FBLoginService()
-
-  init(loginService: LoginService = FacebookLogin()) {
-    self.loginService = loginService
-  }
   
   func login(withEmail email: String, password: String, handler: Completion) {
     loginService.login(withEmail: email, password: password) { [weak self] (result) -> Void in
