@@ -15,9 +15,8 @@ class TokenManager {
     NSUserDefaults.standardUserDefaults().synchronize()
   }
 
-  func loadTokenForUser(user: String) {
-    NSUserDefaults.standardUserDefaults().objectForKey("\(user.hash)")
-    NSUserDefaults.standardUserDefaults().synchronize()
+  func loadTokenForUser(user: String) -> String? {
+    return NSUserDefaults.standardUserDefaults().objectForKey("\(user.hash)") as? String
   }
   
 }
