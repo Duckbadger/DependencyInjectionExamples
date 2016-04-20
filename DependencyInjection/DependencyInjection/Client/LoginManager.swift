@@ -8,15 +8,19 @@
 
 import Foundation
 
-typealias LoginHandler = (success: Bool, error: ErrorType?) -> Void
+typealias Completion = (success: Bool, error: ErrorType?) -> Void
 
 class LoginManager {
   
   let tokenManager = TokenManager()
   let loginService = FBLoginService()
 
-  func login(withEmail email: String, password: String, handler: LoginHandler) {
-    loginService.login(email, password: password) { [weak self] (result) -> Void in
+  init(loginService: LoginService = FacebookLogin()) {
+    self.loginService = loginService
+  }
+  
+  func login(withEmail email: String, password: String, handler: Completion) {
+    loginService.login(withEmail: email, password: password) { [weak self] (result) -> Void in
       switch result {
       case .Success(let accesstoken):
         self?.tokenManager.saveToken(accesstoken, forUser: email)
