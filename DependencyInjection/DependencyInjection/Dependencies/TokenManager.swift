@@ -12,10 +12,12 @@ class TokenManager {
   
   func saveToken(accessToken: String, forUser user: String) {
     NSUserDefaults.standardUserDefaults().setObject(accessToken, forKey: "\(user.hash)")
+    NSUserDefaults.standardUserDefaults().synchronize()
   }
 
   func loadTokenForUser(user: String) {
     NSUserDefaults.standardUserDefaults().objectForKey("\(user.hash)")
+    NSUserDefaults.standardUserDefaults().synchronize()
   }
   
 }
