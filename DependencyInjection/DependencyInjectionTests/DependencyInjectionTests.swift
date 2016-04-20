@@ -9,11 +9,21 @@
 import XCTest
 @testable import DependencyInjection
 
+class MockValidLoginService: LoginService {
+  func login(withEmail email: String, password: String, loginHandler: LoginHandler) {
+    loginHandler(result: .Success(accessToken: "12345"))
+  }
+}
+
+class MockInvalidLoginService: LoginService {
+  func login(withEmail email: String, password: String, loginHandler: LoginHandler) {
+    loginHandler(result: .Failure(error: LoginError.AuthenticationError))
+  }
+}
+
 class DependencyInjectionTests: XCTestCase {
   
   let email = "Ken@DependencyInjection.co"
-  
-  let loginManager = LoginManager()
   let tokenManager = TokenManager()
   
   override func setUp() {
@@ -27,6 +37,8 @@ class DependencyInjectionTests: XCTestCase {
   }
   
   func testValidLogin() {
+    let loginManager = LoginManager(loginService: MockValidLoginService())
+    
     let wait = expectationWithDescription("wait")
     loginManager.login(withEmail: email, password: "b4dg3rz4Lyf") { [weak self] (success, error) in
       XCTAssert(success == true)
@@ -39,10 +51,12 @@ class DependencyInjectionTests: XCTestCase {
   }
   
   func testInvalidLogin() {
+    let loginManager = LoginManager(loginService: MockInvalidLoginService())
+    
     let wait = expectationWithDescription("wait")
     loginManager.login(withEmail: email, password: "b4dg3rz4Lyf") { [weak self] (success, error) in
       XCTAssert(success == false)
-      XCTAssert(error as? FBLoginError == .AuthenticationError)
+      XCTAssert(error as? LoginError == .AuthenticationError)
       XCTAssert(self!.tokenManager.loadTokenForUser(self!.email) == nil)
       wait.fulfill()
     }
